@@ -1,89 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Professional WFM Dashboard</title>
+    <title>WFM Analytics Dashboard</title>
 
-<link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            margin: 0;
+            padding: 30px;
+        }
 
-<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        .header {
+            background: #14213d;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .upload-box {
+            background: white;
+            padding: 35px;
+            margin-top: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        input {
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #14213d;
+        }
+    </style>
 
 </head>
 
 <body>
 
-<header>
-    <h1>WFM Performance Dashboard</h1>
-    <p>Workforce Management Analytics</p>
-</header>
+    <div class="header">
 
-<div class="container">
+        <h1>WFM ANALYTICS DASHBOARD</h1>
 
-    <section class="upload-section">
-        <h2>Upload Excel Raw Data</h2>
+        <p>Workforce Management Reporting System</p>
 
-        <input type="file" id="excelFile" accept=".xlsx,.xls,.csv">
+    </div>
 
-        <p id="uploadStatus">
-            Please upload your WFM Excel file.
-        </p>
-    </section>
+    <div class="upload-box">
 
-    <section class="cards">
+        <h2>Upload WFM Raw Data</h2>
 
-        <div class="card">
-            <h3>Total Records</h3>
-            <h2 id="totalRecords">--</h2>
-        </div>
+        <p>Select your Excel Raw Data File</p>
 
-        <div class="card">
-            <h3>Total Columns</h3>
-            <h2 id="totalColumns">--</h2>
-        </div>
+        <input
+            type="file"
+            id="excelFile"
+            accept=".xlsb,.xlsx,.xls"
+        >
 
-        <div class="card">
-            <h3>Total Sheets</h3>
-            <h2 id="totalSheets">--</h2>
-        </div>
+        <p id="status">Waiting for Excel File...</p>
 
-        <div class="card">
-            <h3>Attendance</h3>
-            <h2 id="attendance">--</h2>
-        </div>
-
-        <div class="card">
-            <h3>Adherence</h3>
-            <h2 id="adherence">--</h2>
-        </div>
-
-    </section>
-
-    <section class="panel">
-        <h2>Excel Data Preview</h2>
-
-        <div class="table-container">
-            <table id="dataTable">
-                <thead></thead>
-                <tbody></tbody>
-            </table>
-        </div>
-    </section>
-
-    <section class="panel">
-        <h2>WFM Performance Chart</h2>
-        <canvas id="wfmChart"></canvas>
-    </section>
-
-</div>
-
-<footer>
-    WFM Dashboard | Powered by GitHub Pages
-</footer>
-
-<script src="app.js"></script>
+    </div>
 
 </body>
+
 </html>
