@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WFM Professional Dashboard</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#f1f5f9;
+ color:#172554;
+}
+header{
+ background:#14213d;
+ color:white;
+ padding:22px;
+}
+header h1{margin:0}
+header p{color:#cbd5e1}
+.container{padding:22px}
+.filters{
+ display:flex;gap:12px;
+ flex-wrap:wrap;margin-bottom:20px;
+}
+select{
+ padding:11px;border:1px solid #cbd5e1;
+ border-radius:8px;background:white;
+}
+.cards{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+ gap:16px;
+}
+.card{
+ background:white;padding:20px;
+ border-radius:12px;
+ box-shadow:0 2px 8px #0001;
+}
+.card p{color:#64748b;margin:0}
+.card h2{font-size:30px;margin:12px 0 0}
+.green{color:#059669}
+.blue{color:#2563eb}
+.orange{color:#ea580c}
+.section{
+ background:white;padding:20px;
+ margin-top:20px;border-radius:12px;
+}
+.bar{
+ background:#e2e8f0;height:18px;
+ border-radius:10px;margin:12px 0;
+ overflow:hidden;
+}
+.fill{height:100%;border-radius:10px}
+table{width:100%;border-collapse:collapse}
+td,th{
+ padding:12px;text-align:left;
+ border-bottom:1px solid #e2e8f0;
+}
+footer{text-align:center;padding:20px;color:#64748b}
+</style>
+</head>
+<body>
+
+<header>
+<h1>WFM Performance Dashboard</h1>
+<p>Workforce Management | Operations Overview</p>
+</header>
+
+<div class="container">
+
+<div class="filters">
+<select id="site" onchange="filterData()">
+<option value="All">All Sites</option>
+<option value="India">India</option>
+<option value="Mexico">Mexico</option>
+<option value="Colombia">Colombia</option>
+</select>
+
+<select id="period" onchange="filterData()">
+<option value="Weekly">Weekly</option>
+<option value="Daily">Daily</option>
+</select>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<p>Total Agents</p>
+<h2 class="blue" id="agents">50</h2>
+</div>
+
+<div class="card">
+<p>Present Agents</p>
+<h2 class="green" id="present">40</h2>
+</div>
+
+<div class="card">
+<p>Absent Agents</p>
+<h2 class="orange" id="absent">10</h2>
+</div>
+
+<div class="card">
+<p>Attendance</p>
+<h2 class="green">85%</h2>
+</div>
+
+<div class="card">
+<p>Adherence</p>
+<h2 class="green">90%</h2>
+</div>
+
+<div class="card">
+<p>Scheduled Hours</p>
+<h2>500</h2>
+</div>
+
+<div class="card">
+<p>Actual Hours</p>
+<h2>400</h2>
+</div>
+
+<div class="card">
+<p>Hours Difference</p>
+<h2 class="orange">-100</h2>
+</div>
+
+</div>
+
+<div class="section">
+<h3>Present vs Absent</h3>
+<p>Present – 80%</p>
+<div class="bar"><div class="fill" style="width:80%;background:#059669"></div></div>
+<p>Absent – 20%</p>
+<div class="bar"><div class="fill" style="width:20%;background:#ea580c"></div></div>
+</div>
+
+<div class="section">
+<h3>Scheduled vs Actual Hours</h3>
+<p>Scheduled: 500 Hours</p>
+<div class="bar"><div class="fill" style="width:100%;background:#2563eb"></div></div>
+<p>Actual: 400 Hours</p>
+<div class="bar"><div class="fill" style="width:80%;background:#059669"></div></div>
+</div>
+
+<div class="section">
+<h3>Supervisor-wise Performance</h3>
+<table>
+<tr><th>Supervisor</th><th>Agents</th><th>Adherence</th></tr>
+<tr><td>Supervisor A</td><td>15</td><td>92%</td></tr>
+<tr><td>Supervisor B</td><td>20</td><td>89%</td></tr>
+<tr><td>Supervisor C</td><td>15</td><td>90%</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h3>Site-wise Performance</h3>
+<table>
+<tr><th>Site</th><th>Agents</th><th>Attendance</th></tr>
+<tr><td>India</td><td>20</td><td>85%</td></tr>
+<tr><td>Mexico</td><td>15</td><td>87%</td></tr>
+<tr><td>Colombia</td><td>15</td><td>83%</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h3>Daily / Weekly Trends</h3>
+<table>
+<tr><th>Period</th><th>Attendance</th><th>Adherence</th></tr>
+<tr><td>Monday</td><td>85%</td><td>90%</td></tr>
+<tr><td>Tuesday</td><td>87%</td><td>91%</td></tr>
+<tr><td>Wednesday</td><td>84%</td><td>89%</td></tr>
+<tr><td>Weekly Average</td><td>85%</td><td>90%</td></tr>
+</table>
+</div>
+
+</div>
+
+<footer>WFM Dashboard | Powered by GitHub Pages</footer>
+
+<script>
+function filterData(){
+ const site=document.getElementById("site").value;
+ const period=document.getElementById("period").value;
+ document.querySelector("header p").textContent =
+ "Workforce Management | "+site+" | "+period+" Overview";
+}
+</script>
+
+</body>
+</html>
